@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "aicaas",
+  "version": "1.0.0",
+  "description": "Framework de desenvolvimento ágil orientado por IA - Documentação completa em Português Brasileiro",
+  "keywords": [
+    "agile",
+    "ai",
+    "desenvolvimento",
+    "metodologia",
+    "agentes",
+    "aicaas",
+    "português",
+    "pt-br"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CrokoMedia/AiCaas-.git"
+  },
+  "license": "MIT",
+  "author": "CrokoMedia",
+  "main": "bin/aicaas.js",
+  "bin": {
+    "aicaas": "bin/aicaas.js"
+  },
+  "scripts": {
+    "install:aicaas": "node bin/aicaas.js install"
+  },
+  "dependencies": {
+    "bmad-method": "^6.0.0-Beta.7"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

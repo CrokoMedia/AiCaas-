@@ -40,7 +40,7 @@ Toda a documentação está disponível na pasta [`pt-BR/`](pt-BR/):
 
 ```bash
 # Pré-requisito: Node.js 20+
-npx bmad-method install
+npx aicaas install
 ```
 
 Siga os prompts do instalador e abra seu IDE de IA (Claude Code, Cursor, Windsurf, etc.) na pasta do projeto.

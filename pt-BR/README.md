@@ -25,7 +25,7 @@ Ferramentas de IA tradicionais pensam por você, produzindo resultados medianos.
 **Pré-requisitos**: [Node.js](https://nodejs.org) v20+
 
 ```bash
-npx bmad-method install
+npx aicaas install
 ```
 
 Siga os prompts do instalador e então abra seu IDE de IA (Claude Code, Cursor, Windsurf, etc.) na pasta do projeto.
@@ -33,7 +33,7 @@ Siga os prompts do instalador e então abra seu IDE de IA (Claude Code, Cursor, 
 **Instalação Não-Interativa**: Para pipelines CI/CD ou deployments automatizados, use flags de linha de comando:
 
 ```bash
-npx bmad-method install --directory /caminho/para/projeto --modules bmm --tools claude-code --yes
+npx aicaas install --directory /caminho/para/projeto --modules bmm --tools claude-code --yes
 ```
 
 Veja o [Guia de Instalação Não-Interativa](docs/non-interactive-installation.md) para todas as opções disponíveis.
