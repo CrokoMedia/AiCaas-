@@ -2,15 +2,15 @@
 
 [![Licença: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Tradução](https://img.shields.io/badge/Tradução-100%25-brightgreen)](pt-BR/)
-[![Baseado em](https://img.shields.io/badge/Baseado%20em-BMad%20Method-blue)](https://github.com/bmad-code-org/BMAD-METHOD)
+[![Português BR](https://img.shields.io/badge/Idioma-Português%20BR-green)](pt-BR/)
 
 > **Framework de desenvolvimento ágil orientado por IA - Documentação completa em Português Brasileiro**
 
-**AiCaas** é uma tradução completa e adaptação em português brasileiro de um framework revolucionário de desenvolvimento ágil orientado por IA, baseado no [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD).
+**AiCaas** é um framework completo de desenvolvimento ágil orientado por IA com documentação 100% em português brasileiro.
 
 ## 🎯 Sobre o AiCaas
 
-O AiCaas disponibiliza em português brasileiro um framework completo de desenvolvimento orientado por IA que oferece:
+O AiCaas oferece um framework completo de desenvolvimento orientado por IA que:
 
 - 🤖 **Agentes especializados de IA** - PM, Arquiteto, Dev, UX Designer, Scrum Master e mais
 - 📋 **Workflows guiados** - Do brainstorming ao deployment
@@ -19,7 +19,7 @@ O AiCaas disponibiliza em português brasileiro um framework completo de desenvo
 
 ## 📚 Documentação em Português
 
-Toda a documentação foi traduzida e está disponível na pasta [`pt-BR/`](pt-BR/):
+Toda a documentação está disponível na pasta [`pt-BR/`](pt-BR/):
 
 ### 🚀 Começar Agora
 - **[Visão Geral Completa](pt-BR/README.md)** - Introdução ao framework
@@ -77,7 +77,7 @@ Para produtos, plataformas, recursos complexos:
 
 ## 🌟 Módulos Disponíveis
 
-O framework base oferece diversos módulos especializados:
+O framework oferece diversos módulos especializados:
 
 | Módulo | Descrição |
 |--------|-----------|
@@ -87,53 +87,30 @@ O framework base oferece diversos módulos especializados:
 | **Game Dev Studio** | Desenvolvimento de jogos (Unity, Unreal, Godot) |
 | **Creative Intelligence Suite** | Inovação e design thinking |
 
-## 🔗 Links Úteis
-
-- 📦 **[NPM Package](https://www.npmjs.com/package/bmad-method)** - Pacote de instalação
-- 📖 **[Documentação Original](http://docs.bmad-method.org)** - Em inglês
-- 💬 **[Discord da Comunidade](https://discord.gg/gk8jAdXWmj)** - Suporte e discussões
-- 🐙 **[Repositório Original](https://github.com/bmad-code-org/BMAD-METHOD)** - Projeto original
-
 ## 🤝 Sobre o AiCaas
 
-**AiCaas** é uma iniciativa independente para tornar este poderoso framework totalmente acessível à comunidade brasileira de desenvolvimento de software.
-
-### Baseado em BMad Method
-
-Este projeto é baseado no [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD), criado pela BMad Code, LLC. O software original está licenciado sob MIT License.
-
-**Importante:** AiCaas é um projeto independente de tradução e documentação. Não é oficialmente endossado ou certificado pela BMad Code, LLC.
+**AiCaas** é uma iniciativa para disponibilizar documentação completa em português brasileiro de um framework de desenvolvimento ágil orientado por IA.
 
 - **Criador do AiCaas**: [@CrokoMedia](https://github.com/CrokoMedia)
 - **Status da Tradução**: Completa e atualizada (Fevereiro 2026)
-- **Licença**: MIT (mesma do projeto original)
+- **Licença**: MIT
 
 ### Convenções de Tradução
 
 - ✅ Termos técnicos mantidos quando apropriado (workflow, framework, sprint)
 - ✅ Comandos e código em inglês (padrão da indústria)
 - ✅ Terminologia consistente em toda documentação
-- ✅ Links para recursos externos preservados
+- ✅ Adaptado para a comunidade brasileira
 
 ## 📝 Licença
 
-Este projeto mantém a licença MIT do software original. Veja [LICENSE](LICENSE) para detalhes.
+Este projeto está licenciado sob a Licença MIT. Veja [LICENSE](LICENSE) para detalhes.
 
-### Aviso de Marca Registrada
+## 🌟 Apoie o Projeto
 
-**BMad** e **BMAD-METHOD** são marcas registradas da BMad Code, LLC. Este projeto (AiCaas) é uma tradução independente do software open source, não afiliado oficialmente com a BMad Code, LLC.
-
-## 🌟 Apoie os Projetos
-
-### Apoie o AiCaas (Tradução)
 - ⭐ Dê uma estrela neste repositório
 - 🔗 Compartilhe com outros desenvolvedores brasileiros
 - 💬 Contribua com melhorias na tradução
-
-### Apoie o Projeto Original
-- 💬 Junte-se ao [Discord](https://discord.gg/gk8jAdXWmj)
-- ⭐ Dê estrela no [repositório original](https://github.com/bmad-code-org/BMAD-METHOD)
-- ☕ [Buy Me a Coffee](https://buymeacoffee.com/bmad) - Apoie os criadores
 
 ---
 
