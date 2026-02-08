@@ -12,6 +12,7 @@
 
 const { spawn } = require('child_process');
 const path = require('path');
+const { Transform } = require('stream');
 
 // Cores para output (console simples, sem dependências extras)
 const colors = {
@@ -19,20 +20,45 @@ const colors = {
   bright: '\x1b[1m',
   green: '\x1b[32m',
   cyan: '\x1b[36m',
-  yellow: '\x1b[33m'
+  yellow: '\x1b[33m',
+  blue: '\x1b[34m',
+  magenta: '\x1b[35m'
 };
 
+function printAiCaasBanner() {
+  console.log('');
+  console.log(`${colors.bright}${colors.cyan}    ╔═══════════════════════════════════════════════════════╗${colors.reset}`);
+  console.log(`${colors.bright}${colors.cyan}    ║                                                       ║${colors.reset}`);
+  console.log(`${colors.bright}${colors.cyan}    ║                   █████╗ ██╗ ██████╗ █████╗  █████╗   ║${colors.reset}`);
+  console.log(`${colors.bright}${colors.cyan}    ║                  ██╔══██╗██║██╔════╝██╔══██╗██╔══██╗  ║${colors.reset}`);
+  console.log(`${colors.bright}${colors.cyan}    ║                  ███████║██║██║     ███████║███████║  ║${colors.reset}`);
+  console.log(`${colors.bright}${colors.cyan}    ║                  ██╔══██║██║██║     ██╔══██║██╔══██║  ║${colors.reset}`);
+  console.log(`${colors.bright}${colors.cyan}    ║                  ██║  ██║██║╚██████╗██║  ██║██║  ██║  ║${colors.reset}`);
+  console.log(`${colors.bright}${colors.cyan}    ║                  ╚═╝  ╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝  ║${colors.reset}`);
+  console.log(`${colors.bright}${colors.cyan}    ║                                                  🇧🇷   ║${colors.reset}`);
+  console.log(`${colors.bright}${colors.cyan}    ║          Framework de Desenvolvimento Ágil com IA     ║${colors.reset}`);
+  console.log(`${colors.bright}${colors.cyan}    ║                      v1.0.0                           ║${colors.reset}`);
+  console.log(`${colors.bright}${colors.cyan}    ║                                                       ║${colors.reset}`);
+  console.log(`${colors.bright}${colors.cyan}    ╚═══════════════════════════════════════════════════════╝${colors.reset}`);
+  console.log('');
+  console.log(`${colors.bright}${colors.cyan}    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${colors.reset}`);
+  console.log('');
+  console.log(`    ${colors.bright}🎉 Bem-vindo ao AiCaas!${colors.reset}`);
+  console.log('');
+  console.log(`    ${colors.green}✓${colors.reset} Documentação 100% em Português Brasileiro`);
+  console.log(`    ${colors.green}✓${colors.reset} 50+ workflows cobrindo todo o ciclo de desenvolvimento`);
+  console.log(`    ${colors.green}✓${colors.reset} 100% gratuito e open source`);
+  console.log(`    ${colors.green}✓${colors.reset} Sem paywalls. Sem conteúdo bloqueado.`);
+  console.log('');
+  console.log(`    ${colors.bright}📚 Documentação:${colors.reset} ${colors.cyan}https://github.com/CrokoMedia/AiCaas-${colors.reset}`);
+  console.log(`    ${colors.bright}💡 GitHub:${colors.reset} ${colors.cyan}https://github.com/CrokoMedia/AiCaas-${colors.reset}`);
+  console.log('');
+  console.log(`${colors.bright}${colors.cyan}    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${colors.reset}`);
+  console.log('');
+}
+
 function printBanner() {
-  console.log('');
-  console.log(`${colors.bright}${colors.cyan}╔═══════════════════════════════════════════════════════╗${colors.reset}`);
-  console.log(`${colors.bright}${colors.cyan}║                                                       ║${colors.reset}`);
-  console.log(`${colors.bright}${colors.cyan}║                      AiCaas 🇧🇷                       ║${colors.reset}`);
-  console.log(`${colors.bright}${colors.cyan}║                                                       ║${colors.reset}`);
-  console.log(`${colors.bright}${colors.cyan}║     Framework de Desenvolvimento Ágil com IA          ║${colors.reset}`);
-  console.log(`${colors.bright}${colors.cyan}║        Documentação 100% em Português Brasileiro      ║${colors.reset}`);
-  console.log(`${colors.bright}${colors.cyan}║                                                       ║${colors.reset}`);
-  console.log(`${colors.bright}${colors.cyan}╚═══════════════════════════════════════════════════════╝${colors.reset}`);
-  console.log('');
+  printAiCaasBanner();
 }
 
 function printHelp() {
@@ -50,6 +76,50 @@ function printHelp() {
   console.log('');
 }
 
+function createBannerFilter() {
+  let inBmadBanner = false;
+  let bannerLines = 0;
+  let buffer = '';
+
+  return new Transform({
+    transform(chunk, encoding, callback) {
+      buffer += chunk.toString();
+      const lines = buffer.split('\n');
+      buffer = lines.pop() || '';
+
+      for (let line of lines) {
+        // Detectar início do banner BMad (procura por "BMAD" ou ASCII art característico)
+        if (line.includes('██████╗') || line.includes('Build More') || line.includes('BETA IS HERE')) {
+          inBmadBanner = true;
+          bannerLines = 0;
+          continue;
+        }
+
+        // Contar linhas do banner
+        if (inBmadBanner) {
+          bannerLines++;
+          // Banner BMad tem ~25 linhas, pular todas
+          if (bannerLines > 30 || line.trim() === '') {
+            inBmadBanner = false;
+          }
+          continue;
+        }
+
+        // Passar linhas que não são do banner
+        this.push(line + '\n');
+      }
+
+      callback();
+    },
+    flush(callback) {
+      if (buffer) {
+        this.push(buffer);
+      }
+      callback();
+    }
+  });
+}
+
 function runBmadMethod(args) {
   // Encontrar o executável do bmad-method
   let bmadPath;
@@ -63,9 +133,13 @@ function runBmadMethod(args) {
 
     const npxArgs = ['bmad-method', ...args];
     const npx = spawn('npx', npxArgs, {
-      stdio: 'inherit',
+      stdio: 'pipe',
       shell: true
     });
+
+    const filter = createBannerFilter();
+    npx.stdout.pipe(filter).pipe(process.stdout);
+    npx.stderr.pipe(process.stderr);
 
     npx.on('exit', (code) => {
       process.exit(code || 0);
@@ -74,11 +148,15 @@ function runBmadMethod(args) {
     return;
   }
 
-  // Executar bmad-method diretamente
+  // Executar bmad-method diretamente com pipes para filtrar output
   const bmad = spawn('node', [bmadPath, ...args], {
-    stdio: 'inherit',
+    stdio: 'pipe',
     shell: false
   });
+
+  const filter = createBannerFilter();
+  bmad.stdout.pipe(filter).pipe(process.stdout);
+  bmad.stderr.pipe(process.stderr);
 
   bmad.on('exit', (code) => {
     process.exit(code || 0);
@@ -91,7 +169,6 @@ const args = process.argv.slice(2);
 // Mostrar banner para comando install
 if (args.length === 0 || args[0] === 'install') {
   printBanner();
-  console.log(`${colors.green}Iniciando instalação do AiCaas...${colors.reset}\n`);
 }
 
 // Mostrar ajuda
